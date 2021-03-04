@@ -6,7 +6,7 @@ When using this resource, please cite the original publication:
 Aysan Mahmoudzadeh, Iman Azimi, Amir M. Rahmani, and Pasi Liljeberg, “Lightweight Photoplethysmography Quality Assessment for Real-time IoT-based Health Monitoring using Unsupervised Anomaly Detection,” Elsevier International Conference on Ambient Systems, Networks and Technologies (ANT’21), 2021, Poland.
 
 
-authors: Aysan Mahmoudzade and Iman Azimi
+authors: Aysan Mahmoudzadeh and Iman Azimi
 
 """
 
@@ -140,8 +140,8 @@ if __name__ == '__main__':
     X_train_mean = np.mean(np.array(feature_list), axis=0)
     X_train_std = np.std(np.array(feature_list), axis=0)
     X_train = (np.array(feature_list) - X_train_mean)/X_train_std    
-    model_EE = EllipticEnvelope(contamination=0.34)
-    model_EE.fit(np.array(feature_list))
+    model_EE = EllipticEnvelope(contamination=0.34) #contamination is the proportion of outliers in the data set.
+    model_EE.fit(X_train)
     
     ##model - test phase
     #X_test = (np.array(feature_list) - X_train_mean)/X_train_std
